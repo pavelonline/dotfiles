@@ -22,6 +22,7 @@ in
       ./sway
       ./resolved
       ./zsh
+      ./imports/plymouth
       ./displaymanager
       ./imports/emacs
       ./imports/ipfs
