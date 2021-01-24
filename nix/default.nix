@@ -114,6 +114,15 @@ in
 
   environment.shells = [ pkgs.zsh ];
 
+  services.logind.extraConfig = ''
+HandlePowerKey=hibernate
+HandleSuspendKey=suspend
+HandleHibernateKey=hibernate
+HandleLidSwitch=hybrid-sleep
+HandleLidSwitchExternalPower=hybrid-sleep
+HandleLidSwitchDocked=hybrid-sleep
+  '' ;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
