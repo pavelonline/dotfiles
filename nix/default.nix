@@ -28,6 +28,7 @@ in
       ./imports/ipfs
       ./imports/clight
       ./imports/hardware/e15
+      ./imports/steam
     ];
 
   # Use the systemd-boot EFI boot loader.
