@@ -89,6 +89,8 @@ in
 
   services.blueman.enable = true;
 
+  services.ofono.enable = true;
+
   hardware.bluetooth = {
     enable = true;
     package = pkgs.bluezFull;
