@@ -89,9 +89,12 @@ in
 
   services.blueman.enable = true;
 
-  hardware.bluetooth.config = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
+  hardware.bluetooth = {
+    enable = true;
+    config = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
     };
   };
 
