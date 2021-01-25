@@ -73,7 +73,21 @@ in
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+    package = pkgs.pulseaudioFull;
+  };
+
+  systemd.user.services.mpris-proxy = {
+    Unit.Description = "Mpris proxy";
+    Unit.After = [ "network.target" "sound.target" ];
+    Service.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+    Install.WantedBy = [ "default.target" ];
+  };
+
+
+  services.blueman.enable = true;
 
   # services.kubernetes = {
   #   roles = [ "master" "node" ];
@@ -116,13 +130,13 @@ in
   environment.shells = [ pkgs.zsh ];
 
   services.logind.extraConfig = ''
-HandlePowerKey=hibernate
-HandleSuspendKey=suspend
-HandleHibernateKey=hibernate
-HandleLidSwitch=hybrid-sleep
-HandleLidSwitchExternalPower=hybrid-sleep
-HandleLidSwitchDocked=hybrid-sleep
-  '' ;
+    HandlePowerKey=hibernate
+    HandleSuspendKey=suspend
+    HandleHibernateKey=hibernate
+    HandleLidSwitch=hybrid-sleep
+    HandleLidSwitchExternalPower=hybrid-sleep
+    HandleLidSwitchDocked=hybrid-sleep
+  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
