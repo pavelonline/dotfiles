@@ -80,14 +80,20 @@ in
   };
 
   systemd.user.services.mpris-proxy = {
-    Unit.Description = "Mpris proxy";
-    Unit.After = [ "network.target" "sound.target" ];
-    Service.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-    Install.WantedBy = [ "default.target" ];
+    description = "Mpris proxy";
+    after = [ "network.target" "sound.target" ];
+    script = "${pkgs.bluez}/bin/mpris-proxy";
+    wantedBy = [ "default.target" ];
   };
 
 
   services.blueman.enable = true;
+
+  hardware.bluetooth.config = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+  };
 
   # services.kubernetes = {
   #   roles = [ "master" "node" ];
