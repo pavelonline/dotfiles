@@ -47,7 +47,7 @@ in
 
 
         undo-tree # ; <C-x u> to show the undo tree
-        auctex # ; LaTeX mode
+        # auctex # ; LaTeX mode
         beacon # ; highlight my cursor when scrolling
         nameless # ; hide current package name everywhere in elisp code
       ]
