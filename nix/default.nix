@@ -12,6 +12,10 @@ in
   nixpkgs.overlays = [
     (import ./overlays)
   ];
+  nix.package = pkgs.nixUnstable;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
   imports =
     [
       ./cloudmount
