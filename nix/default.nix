@@ -29,6 +29,7 @@ in
       ./imports/plymouth
       ./displaymanager
       ./imports/emacs
+      ./imports/rust
       ./imports/ipfs
       ./imports/clight
       ./imports/hardware/e15
