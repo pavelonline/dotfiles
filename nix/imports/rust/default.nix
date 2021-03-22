@@ -1,4 +1,4 @@
 { config, pkgs, ... }:
 {
-  environment.systemPackages = [ cargo rust rust-analyzer ];
+  environment.systemPackages = with pkgs; [ cargo rust rust-analyzer ];
 }
